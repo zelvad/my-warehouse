@@ -157,7 +157,7 @@ class Warehouse
         /**
          * Получаем uuid удаленной группы
          */
-        $id = $this->parseUrl($data['productFolder']['meta']['href']);
+        $id = $this->parseUrl($data['events'][0]['meta']['href']);
 
         return [
             'id' => $id
