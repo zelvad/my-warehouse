@@ -3,9 +3,6 @@
     "type": "library",
     "license": "MIT",
     "description": "Мой склад",
-    "require": {
-        "illuminate/support": "5.8.x-dev"
-    },
     "authors": [
         {
             "name": "Vladislav Zelenyk",
