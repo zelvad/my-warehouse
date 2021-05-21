@@ -1,0 +1,21 @@
+{
+    "name": "zelvad/my-warehouse",
+    "type": "library",
+    "license": "MIT",
+    "description": "Мой склад",
+    "require": {
+        "illuminate/support": "5.8.x-dev"
+    },
+    "authors": [
+        {
+            "name": "Vladislav Zelenyk",
+            "email": "vlad95715@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Zelvad\\MyWarehouse\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
