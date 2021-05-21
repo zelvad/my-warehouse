@@ -54,7 +54,6 @@ class HttpClient
                     'Content-Type' => 'application/json'
                 ]
             ]
-        )
-            ->getBody();
+        )->getContents();
     }
 }
