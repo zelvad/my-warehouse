@@ -47,13 +47,13 @@ class HttpClient
      */
     public function curl(string $url, string $method, array $params = []): StreamInterface
     {
-        return $this->client->request(
+        return json_decode($this->client->request(
             $method, $url, $params + [
                 'headers' => [
                     'Authorization' => 'Bearer '.$this->token,
                     'Content-Type' => 'application/json'
                 ]
             ]
-        )->getContents();
+        )->getContents());
     }
 }
