@@ -42,18 +42,22 @@ class HttpClient
      * @param string $url
      * @param string $method
      * @param array $params
-     * @return StreamInterface
+     * @return mixed
      * @throws GuzzleException
      */
-    public function curl(string $url, string $method, array $params = []): StreamInterface
+    public function curl(string $url, string $method, array $params = [])
     {
-        return json_decode($this->client->request(
+        $result = $this->client->request(
             $method, $url, $params + [
                 'headers' => [
                     'Authorization' => 'Bearer '.$this->token,
                     'Content-Type' => 'application/json'
                 ]
             ]
-        )->getContents());
+        )
+            ->getBody()
+            ->getContents();
+
+        return json_decode($result);
     }
 }

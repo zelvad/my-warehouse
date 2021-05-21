@@ -75,17 +75,17 @@ class Warehouse
             return false;
         }
 
-        if (!empty($newGroup['productFolder'])) {
+        if (!empty($newGroup->productFolder)) {
             /**
              * Получаем uuid родительской группы
              */
-            $parent = $this->parseUrl($newGroup['productFolder']['meta']['href']);
+            $parent = $this->parseUrl($newGroup->productFolder->meta->href);
         }
 
         return [
-            'id' => $newGroup['id'],
+            'id' => $newGroup->id,
             'parent_id' => isset($parent) ? $parent : null,
-            'category_name' => $newGroup['name']
+            'category_name' => $newGroup->name
         ];
     }
 
@@ -126,18 +126,18 @@ class Warehouse
             return false;
         }
 
-        if (!empty($updateGroup['productFolder'])) {
+        if (!empty($updateGroup->productFolder)) {
             /**
              * Получаем uuid родительской группы
              */
-            $parent = $this->parseUrl($updateGroup['productFolder']['meta']['href']);
+            $parent = $this->parseUrl($updateGroup->productFolder->meta->href);
         }
 
         return [
-            'id' => $updateGroup['id'],
+            'id' => $updateGroup->id,
             'parent_id' => isset($parent) ? $parent : null,
-            'category_name' => $updateGroup['name'],
-            'archived' => $updateGroup['archived']
+            'category_name' => $updateGroup->name,
+            'archived' => $updateGroup->archived
         ];
     }
 
