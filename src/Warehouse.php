@@ -30,11 +30,11 @@ class Warehouse
      * Warehouse constructor.
      * @param string $token
      */
-    public function __construct(string $token)
+    public function __construct()
     {
-        $this->token = $token;
+        $this->token = config('my-warehouse.token');
 
-        $this->http = new HttpClient($token);
+        $this->http = new HttpClient();
         $this->logger = new Log();
     }
 
@@ -83,9 +83,9 @@ class Warehouse
         }
 
         return [
-            'id' => $newGroup->id,
+            'id_warehouse' => $newGroup->id,
             'parent_id' => isset($parent) ? $parent : null,
-            'category_name' => $newGroup->name
+            'name' => $newGroup->name
         ];
     }
 
@@ -134,9 +134,9 @@ class Warehouse
         }
 
         return [
-            'id' => $updateGroup->id,
+            'id_warehouse' => $updateGroup->id,
             'parent_id' => isset($parent) ? $parent : null,
-            'category_name' => $updateGroup->name,
+            'name' => $updateGroup->name,
             'archived' => $updateGroup->archived
         ];
     }
@@ -160,7 +160,7 @@ class Warehouse
         $id = $this->parseUrl($data['events'][0]['meta']['href']);
 
         return [
-            'id' => $id
+            'id_warehouse' => $id
         ];
     }
 

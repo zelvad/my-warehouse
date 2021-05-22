@@ -28,7 +28,7 @@ class HttpClient
      */
     public function __construct(string $token)
     {
-        $this->token = $token;
+        $this->token = config('my-warehouse.token');
 
         /**
          * Иницилизируем клиент
