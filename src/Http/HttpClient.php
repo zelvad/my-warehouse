@@ -26,7 +26,7 @@ class HttpClient
      * HttpClient constructor.
      * @param string $token
      */
-    public function __construct(string $token)
+    public function __construct()
     {
         $this->token = config('my-warehouse.token');
 
