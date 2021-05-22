@@ -4,6 +4,8 @@
 namespace Zelvad\MyWarehouse;
 
 
+use Zelvad\MyWarehouse\Console\Commands\SyncMyWarehouse;
+
 class MyWarehouseServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     public function boot()
@@ -24,5 +26,14 @@ class MyWarehouseServiceProvider extends \Illuminate\Support\ServiceProvider
          * Publish migrations
          */
         $this->loadMigrationsFrom(__DIR__.'/All/migrations');
+
+        /**
+         * Publish console commands
+         */
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                SyncMyWarehouse::class
+            ]);
+        }
     }
 }
