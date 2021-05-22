@@ -30,5 +30,9 @@ Route::post('/my-warehouse/update', function (Request $request) {
  * Delete webhook
  */
 Route::post('/my-warehouse/delete', function (Request $request) {
+    $myWarehouseWebhook = new HandlerWebhook();
 
+    return $myWarehouseWebhook->delete(
+        $request->all()
+    );
 });
